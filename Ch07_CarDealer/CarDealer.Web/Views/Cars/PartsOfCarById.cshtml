@@ -1,0 +1,51 @@
+﻿@model CarWithPartsModel
+@{
+    ViewData["Title"] = "A Cars With Its Parts";
+}
+<h2>@ViewData["Title"]</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Make
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Traveled Distance
+                </th>
+                <th>
+                    Parts
+                </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    @Model.Make
+                </td>
+                <td>
+                    @Model.Model
+                </td>
+                <td>
+                    @Model.TravelledDistance km
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var part in Model.Parts)
+                        {
+                            <li>
+                                @part.Name - $@part.Price.ToString("F2")
+                            </li>
+                        }
+
+                    </ul>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>

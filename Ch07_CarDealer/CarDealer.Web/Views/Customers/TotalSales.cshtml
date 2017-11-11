@@ -1,0 +1,16 @@
+﻿@model CustomerTotalSalesModel
+
+@{
+    ViewData["Title"] = $"Customer {Model.Name}";
+}
+<h2>@ViewData["Title"]</h2>
+
+@{
+    int totalCars = @Model.BoughtCars.Count();
+}
+<p>
+    Total: @totalCars @(totalCars != 1 ? "Cars" : "Car") Bought
+</p>
+<p>
+    Total Spent Money: $@Model.TotalMoneySpent.ToString("F2")
+</p>

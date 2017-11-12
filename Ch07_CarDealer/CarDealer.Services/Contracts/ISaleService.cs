@@ -5,11 +5,11 @@
 
     public interface ISaleService
     {
-        IEnumerable<SaleListModel> All();
+        IEnumerable<SaleListingModel> All();
 
         SaleDetailsModel Details(int id);
 
-        IEnumerable<SaleListModel> All(double discount);
+        IEnumerable<SaleListingModel> All(double discount);
 
     }
 }

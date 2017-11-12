@@ -17,7 +17,7 @@
         }
 
 
-        public IEnumerable<SaleListModel> All()
+        public IEnumerable<SaleListingModel> All()
         {
             return this.GetSalesList();
         }
@@ -46,7 +46,7 @@
         }
 
 
-        public IEnumerable<SaleListModel> All(double discount)
+        public IEnumerable<SaleListingModel> All(double discount)
         {
             return ((discount == 0)
                 ? this.GetSalesList().Where(s => s.TotalDiscount > 0).ToList()
@@ -54,11 +54,12 @@
         }
 
         
-        private IEnumerable<SaleListModel> GetSalesList()
+        private IEnumerable<SaleListingModel> GetSalesList()
         {
             return this.db
                 .Sales
-                .Select(s => new SaleListModel
+                .OrderByDescending(s=>s.Id)
+                .Select(s => new SaleListingModel
                 {
                     Id = s.Id,
                     CustomerName = s.Customer.Name,

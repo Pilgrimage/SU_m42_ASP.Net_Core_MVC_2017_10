@@ -29,12 +29,12 @@
         }
 
 
-        private SuppliersModel GetSuppliersModel(bool isImporter)
+        private SuppliersViewModel GetSuppliersModel(bool isImporter)
         {
             string type = isImporter ? "Importer" : "Local";
-            var result = this.suppliers.All(isImporter);
+            var result = this.suppliers.AllListing(isImporter);
 
-            return new SuppliersModel
+            return new SuppliersViewModel
             {
                 Type = type,
                 Suppliers = result 

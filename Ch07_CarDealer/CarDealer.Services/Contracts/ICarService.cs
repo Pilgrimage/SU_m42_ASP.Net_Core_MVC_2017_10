@@ -7,9 +7,14 @@
     {
         IEnumerable<CarModel> ByMake(string make);
 
-        IEnumerable<CarWithPartsModel> WithParts();
+        IEnumerable<CarWithPartsModel> WithParts(int page = 1, int pageSize = 10);
 
         CarWithPartsModel WithParts(int id);
 
+        IEnumerable<MakeModel> Makers();
+
+        void Create(string make, string model, long travelledDistance, IEnumerable<int> parts);
+
+        int Total();
     }
 }

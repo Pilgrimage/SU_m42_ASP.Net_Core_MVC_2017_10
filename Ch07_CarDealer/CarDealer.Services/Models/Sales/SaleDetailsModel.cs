@@ -2,7 +2,7 @@
 {
     using CarDealer.Services.Models.Cars;
 
-    public class SaleDetailsModel : SaleListModel
+    public class SaleDetailsModel : SaleListingModel
     {
         public CarModel Car { get; set; }
     }

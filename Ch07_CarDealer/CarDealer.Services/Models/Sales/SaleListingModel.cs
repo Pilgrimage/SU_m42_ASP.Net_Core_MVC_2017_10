@@ -1,6 +1,6 @@
 ﻿namespace CarDealer.Services.Models.Sales
 {
-    public class SaleListModel : SaleModel
+    public class SaleListingModel : SaleModel
     {
         public int Id { get; set; }
 

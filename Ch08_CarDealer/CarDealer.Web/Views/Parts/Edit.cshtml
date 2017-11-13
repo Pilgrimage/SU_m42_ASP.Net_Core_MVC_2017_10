@@ -1,0 +1,54 @@
+﻿@model PartListingServiceModel
+
+@{
+    ViewData["Title"] = "Edit Part";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" disabled class="form-control"/>
+                <span asp-validation-for="Name" class="form-text text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" min="0" required class="form-control"/>
+                <span asp-validation-for="Price" class="form-text text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Quantity"></label>
+                <input asp-for="Quantity" min="1" max="1000000000" required class="form-control"/>
+                <span asp-validation-for="Quantity" class="form-text text-danger"></span>
+            </div>
+
+            
+            <div class="form-group">
+                <label asp-for="SupplierName">Supplier</label>
+                <input asp-for="SupplierName" disabled class="form-control"/>
+                <span asp-validation-for="SupplierName" class="form-text text-danger"></span>
+            </div>
+            
+            <br/>
+            <div>
+                <a class="btn btn-default btn-lg" href="/parts/all">  Back  </a>                
+                <input class="btn btn-warning btn-lg" type="submit" value="Save Changes"/>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+

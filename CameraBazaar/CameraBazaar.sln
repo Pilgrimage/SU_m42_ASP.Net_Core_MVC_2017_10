@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CameraBazaar.Web", "CameraBazaar.Web\CameraBazaar.Web.csproj", "{A2867307-8826-4F9D-B287-B577C457CFC3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CameraBazaar.Data", "CameraBazaar.Data\CameraBazaar.Data.csproj", "{B7590635-2A91-4F67-9584-DA7882F1C750}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{78895E92-1170-4884-A8B4-65BD7B380E96}"
+	ProjectSection(SolutionItems) = preProject
+		CS-MVC-ASP.NET-Core-Razor-and-Filters-Part-1.docx = CS-MVC-ASP.NET-Core-Razor-and-Filters-Part-1.docx
+		CS-MVC-ASP.NET-Core-Razor-and-Filters-Part-2.docx = CS-MVC-ASP.NET-Core-Razor-and-Filters-Part-2.docx
+		HelperLog.txt = HelperLog.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraBazaar.Services", "CameraBazaar.Services\CameraBazaar.Services.csproj", "{CA9C8554-2E16-457B-89A2-000F14CAF1CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2867307-8826-4F9D-B287-B577C457CFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2867307-8826-4F9D-B287-B577C457CFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2867307-8826-4F9D-B287-B577C457CFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2867307-8826-4F9D-B287-B577C457CFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7590635-2A91-4F67-9584-DA7882F1C750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7590635-2A91-4F67-9584-DA7882F1C750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7590635-2A91-4F67-9584-DA7882F1C750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7590635-2A91-4F67-9584-DA7882F1C750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9C8554-2E16-457B-89A2-000F14CAF1CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9C8554-2E16-457B-89A2-000F14CAF1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9C8554-2E16-457B-89A2-000F14CAF1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9C8554-2E16-457B-89A2-000F14CAF1CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F8FC0C7-03E9-468F-B361-0F1821B5563A}
+	EndGlobalSection
+EndGlobal

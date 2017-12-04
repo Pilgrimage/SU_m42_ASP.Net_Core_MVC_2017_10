@@ -1,0 +1,17 @@
+﻿@model BlogArticleDetailsServiceModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4><em>published by @Model.Author on @Model.PublishDate.ToShortDateString()</em></h4>
+
+<div class="container" style="border: 1px solid blue">
+    @Html.Raw(Model.Content)
+</div>
+
+<br/>
+
+<a class="btn btn-default btn-lg" asp-area="Blog" asp-controller="Articles" asp-action="Index">Back</a>

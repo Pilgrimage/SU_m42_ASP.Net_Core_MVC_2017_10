@@ -1,0 +1,40 @@
+﻿@model UserRolesViewModel
+@{
+    ViewData["Title"] = "User Roles";
+}
+
+<h2>User @Model.Username is in Roles:</h2>
+
+<br />
+<div>
+    <ul>
+        @foreach (var role in Model.Roles)
+        {
+            <li>
+                @role.Text
+            </li>
+        }
+    </ul>
+</div>
+<br />
+
+<hr/>
+
+<form asp-controller="Users" asp-action="ChangeRoleMembership" method="post">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="hidden" name="UserId" value="@Model.UserId" />
+            <select name="Role" asp-items="Model.Roles" class="form-control"></select>
+        </div>
+        <div class="col-md-4">
+            <input type="submit" class="btn btn-sm btn-primary" name="submit" value="Remove From Role"/>
+        </div>
+    </div>
+</form>
+
+<br/>
+
+<a href="/Admin/Users/Index" class="btn btn-lg btn-default">Back</a>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")

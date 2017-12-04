@@ -1,0 +1,68 @@
+﻿@model CourseDetailsViewModel
+
+@{
+    ViewData["Title"] = $"{@Model.Course.Name} Course";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>@Model.Course.StartDate.ToShortDateString() - @Model.Course.EndDate.ToShortDateString()</h3>
+<h3>Trainer: @Model.Course.Trainer</h3>
+<br />
+<h3>@Model.Course.Description</h3>
+<br />
+<hr />
+<h4>@Model.Course.Students students enrolled</h4>
+<br />
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (Model.IsUserSignedInCourse && Model.Course.EndDate.Date == DateTime.UtcNow.Date)
+    {
+        <h3>Today you can submit your exam.</h3>
+        <form asp-controller="Courses" asp-action="SubmitExam" asp-route-id="@Model.Course.Id" method="post" enctype="multipart/form-data">
+            Upload your exam (only .zip files allowed):
+            <br/>
+            <input type="file" name="exam" class="form-control" style="display: none" accept=".zip"/>
+            <br/>
+            <button type="button" class="btn btn-default" onclick="document.getElementsByName('exam')[0].click()">Choose your file!</button>
+            <br/>
+            <br/>
+            <input type="submit" class="btn btn-primary btn-lg" value="Upload Exam"/>
+
+        </form>
+        <br/>
+
+    }
+
+    if (Model.Course.StartDate.Date > DateTime.UtcNow.Date)
+    {
+        if (Model.IsUserSignedInCourse)
+        {
+            <form asp-area="" asp-controller="Courses" asp-action="SignOut" asp-route-id="@Model.Course.Id" method="post">
+                <input type="submit" class="btn btn-warning btn-lg" value="Sign Out" />
+            </form>
+        }
+        else
+        {
+            <form asp-area="" asp-controller="Courses" asp-action="SignUp" asp-route-id="@Model.Course.Id" method="post">
+                <input type="submit" class="btn btn-primary btn-lg" value="Sign Up" />
+            </form>
+        }
+    }
+    else
+    {
+        if (Model.Course.EndDate.Date < DateTime.UtcNow.Date)
+        {
+            <span>This course has already finished.</span>
+        }
+        else
+        {
+            <span>This course has already started.</span>
+        }
+    }
+}
+else
+{
+    <span>To sign up for this course, please <a asp-area="" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.Path">login</a> into your account.</span>
+}

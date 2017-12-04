@@ -1,0 +1,55 @@
+﻿@model StudentInCourseViewModel
+
+@{
+    ViewData["Title"] = $"Students in course '{@Model.Course.Name}'";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>E-mail</th>
+        <th class="text-center">Grade</th>
+        @if (Model.Course.EndDate.Date < DateTime.UtcNow.Date)
+        {
+            <th class="text-center">Exam Submission</th>
+            <th class="text-center">Set/Change Grade</th>
+
+        }
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var student in Model.Students)
+    {
+        <tr>
+            <td>@student.Name</td>
+            <td>@student.Email</td>
+            <td class="text-center">@(student.Grade == null ? "No Grade": student.Grade.ToString())</td>
+            @if (Model.Course.EndDate.Date < DateTime.UtcNow.Date)
+            {
+                <td class="text-center">
+                    <a
+                        asp-controller="Trainer"
+                        asp-action="DownloadExam"
+                        asp-route-id="@Model.Course.Id"
+                        asp-route-studentid="@student.Id"
+                        class="btn btn-primary btn-sm">
+                        Download
+                    </a>
+                </td>
+
+                <td class="text-center">
+                    <form asp-controller="Trainer" asp-action="GradeStudent" asp-route-id="@Model.Course.Id" method="post">
+                        <input type="hidden" name="studentId" value="@student.Id"/>
+                        <select name="grade" asp-items="@Html.GetEnumSelectList<Grade>()"></select>
+                        <input type="submit" class="btn btn-primary btn-sm" value="Set Grade"/>
+                    </form>
+                </td>
+
+            }
+        </tr>
+    }
+    </tbody>
+</table>

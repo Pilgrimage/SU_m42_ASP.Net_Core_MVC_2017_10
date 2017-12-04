@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AdminCourseBasicListingServiceModel>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h2>@ViewData["Title"]</h2>
+<br/>
+
+<div>
+        <a class="btn btn-primary btn-lg" asp-area="Admin" asp-controller="Courses" asp-action="Create">Add Course</a>
+</div>
+<br />
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Trainer
+        </th>
+        <th>
+            Start Date
+        </th>
+        <th>
+            End Date
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var course in Model)
+    {
+        <tr>
+            <td>
+                @course.Name
+            </td>
+            <td>
+                @course.TrainerId
+            </td>
+            <td>
+                @course.StartDate.ToShortDateString()
+            </td>
+            <td>
+                @course.EndDate.ToShortDateString()
+            </td>
+        </tr>
+    }
+
+    </tbody>
+</table>

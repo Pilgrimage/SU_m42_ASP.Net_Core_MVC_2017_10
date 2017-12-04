@@ -1,0 +1,77 @@
+﻿@model SearchViewModel
+
+@{
+    ViewData["Title"] = $"Search Results for '{Model.SearchText}'";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+@if (Model.Courses.Any())
+{
+    <h3>Courses:</h3>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var course in Model.Courses)
+        {
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="Courses" asp-action="Details" asp-route-id="@course.Id">@course.Name</a>
+                </td>
+                <td>@course.StartDate.ToShortDateString()</td>
+                <td>@course.EndDate.ToShortDateString()</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <br/>
+
+    <h3>Or maube like that:</h3>
+
+    <div class="row course-linsting">
+        @await Html.PartialAsync("_CourseListingsPartial", Model.Courses)
+    </div>
+
+}
+else
+{
+    <h3>No courses to show.</h3>
+}
+<br/>
+
+@if (Model.Users.Any())
+{
+    <h3>Found users:</h3>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Courses</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>
+                        <a asp-area="" asp-controller="Users" asp-action="Profile" asp-route-username="@user.Username">@user.Username</a>
+                    </td>
+                    <td>@user.Name</td>
+                    <td>@user.CoursesCount</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3>No users to show.</h3>
+}

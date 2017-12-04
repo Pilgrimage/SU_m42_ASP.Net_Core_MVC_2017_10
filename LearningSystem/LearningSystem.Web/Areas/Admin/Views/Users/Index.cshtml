@@ -1,0 +1,67 @@
+﻿@model UsersViewModel
+@{
+    ViewData["Title"] = "User Administration";
+}
+
+<h1>@ViewData["Title"]</h1>
+<br />
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th class="text-center">
+            Username
+        </th>
+        <th class="text-center">
+            E-mail
+        </th>
+        <th class="text-center">
+            Roles
+        </th>
+
+        <th class="text-center">
+            Role Actions
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model.Users)
+    {
+        <tr>
+            <td>
+                @user.Username
+            </td>
+            <td>
+                @user.Email
+            </td>
+            <td class="text-center">
+                <a href="/Admin/Users/UserRoles?userId=@user.Id" class="btn btn-sm btn-primary">Roles</a>
+            </td>
+
+            <td>
+                <form asp-controller="Users" asp-action="ChangeRoleMembership" method="post">
+                        
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-md-7">
+                            <input type="hidden" name="UserId" value="@user.Id"/>
+                            <select name="Role" asp-items="Model.Roles" class="form-control"></select>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="submit" class="btn btn-sm btn-primary" name="submit" value="Add To Role"/>
+                            <input type="submit" class="btn btn-sm btn-primary" name="submit" value="Remove From Role"/>
+                        </div>
+                    </div>
+                </form>
+
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

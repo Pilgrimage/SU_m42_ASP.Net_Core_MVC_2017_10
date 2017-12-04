@@ -1,0 +1,38 @@
+﻿@model SalesFormModel
+
+@{
+    ViewData["Title"] = "Add Sale";
+}
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" bordered>
+    
+            <div class="form-group">
+                <label asp-for="CustomerId"></label>
+                <select asp-for="CustomerId" asp-items="@Model.Customers" class="form-control"> </select>  
+                <span asp-validation-for="CustomerId" class="form-text text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="CarId"></label>
+                <select asp-for="CarId" asp-items="@Model.Cars" class="form-control"> </select>  
+                <span asp-validation-for="CarId" class="form-text text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Discount"></label>
+                <input asp-for="Discount" min="0" max="100" step="5" class="form-control"> </input>
+                <span asp-validation-for="Discount" class="form-text text-danger"></span>
+            </div>
+            
+            <br/>
+            <div>
+                <input class="btn btn-success btn-lg" type="submit" value="Submit"/>
+            </div>
+        </form>
+
+
+    </div>
+</div>

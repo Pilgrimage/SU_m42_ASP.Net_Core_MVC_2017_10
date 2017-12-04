@@ -1,0 +1,76 @@
+﻿@model SalesReviewViewModel
+@{
+    ViewData["Title"] = "Review Sale";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="col-md-4">
+        <form method="post" asp-action="Finalize" >
+            
+            <div class="form-group hidden">
+                <label asp-for="CustomerId"></label>
+                <input asp-for="CustomerId" class="form-control" />
+                <span asp-validation-for="CustomerId" class="form-text text-danger"></span>
+            </div>
+    
+            <div class="form-group">
+                <label asp-for="CustomerName"></label>
+                <input asp-for="CustomerName" disabled class="form-control" />
+                <span asp-validation-for="CustomerName" class="form-text text-danger"></span>
+            </div>
+            
+            <div class="form-group hidden">
+                <label asp-for="CarId"></label>
+                <input asp-for="CarId" class="form-control" />
+                <span asp-validation-for="CarId" class="form-text text-danger"></span>
+            </div>
+
+    
+            <div class="form-group">
+                <label asp-for="CarMakeModel"></label>
+                <input asp-for="CarMakeModel" disabled class="form-control" />
+                <span asp-validation-for="CarMakeModel" class="form-text text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="DiscountPresentation"></label>
+                <input asp-for="DiscountPresentation" disabled class="form-control" />
+                <span asp-validation-for="DiscountPresentation" class="form-text text-danger"></span>
+            </div>
+
+            <div class="form-group hidden">
+                <label asp-for="DiscountCar"></label>
+                <input asp-for="DiscountCar" class="form-control" />
+                <span asp-validation-for="DiscountCar" class="form-text text-danger"></span>
+            </div>
+            
+            <div class="form-group hidden">
+                <label asp-for="DiscountDriver"></label>
+                <input asp-for="DiscountDriver" class="form-control" />
+                <span asp-validation-for="DiscountDriver" class="form-text text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" disabled class="form-control" />
+                <span asp-validation-for="Price" class="form-text text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FinalPrice"></label>
+                <input asp-for="FinalPrice" disabled class="form-control" />
+                <span asp-validation-for="FinalPrice" class="form-text text-danger"></span>
+            </div>
+
+            <br />
+            <div>
+                <a class="btn btn-default btn-lg" href="/sales/">Cancel</a>                
+                <input class="btn btn-success btn-lg" type="submit" value="Finalize"/>
+            </div>
+        </form>
+
+
+    </div>
+</div>

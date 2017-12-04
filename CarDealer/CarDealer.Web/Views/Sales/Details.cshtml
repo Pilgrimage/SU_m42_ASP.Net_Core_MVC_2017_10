@@ -1,0 +1,29 @@
+﻿@model SaleDetailsModel
+
+@{
+    ViewData["Title"] = "Sale Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<h3>@Model.CustomerName</h3>
+<br/>
+<p>
+    <strong>Car:</strong> @Model.Car.Make @Model.Car.Model
+</p>
+<p>
+    <strong>Travelled Distance:</strong> @Model.Car.TravelledDistance.ToString() km
+</p>
+<p>
+    <strong>Price:</strong> @Model.Price.ToPrice()
+</p>
+<p>
+    <strong>Total Discount:</strong> @Model.TotalDiscount.ToPercentage()
+</p>
+<p>
+    <strong>Discounted Price:</strong> @Model.DiscountedPrice.ToPrice()
+</p>
+<br/>
+
+<a class="btn btn-lg btn-info" href="/sales/" >Back To List</a>

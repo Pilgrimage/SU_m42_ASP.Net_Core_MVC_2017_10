@@ -1,0 +1,29 @@
+﻿@model CarWithPartsModel
+
+@{
+    ViewData["Title"] = "Car With Parts";
+}
+<h2>@ViewData["Title"]</h2>
+
+<br />
+<p>
+    <strong>Car:</strong> @Model.Make @Model.Model
+</p>
+<p>
+    <strong>Travelled Distance:</strong> @Model.TravelledDistance.ToString() km
+</p>
+<p>
+    <strong>Parts:</strong> 
+</p>
+
+<ul>
+    @foreach (var part in Model.Parts)
+    {
+        <li>
+            @part.Name - @part.Price.ToPrice()
+        </li>
+    }
+</ul>
+
+<br />
+<a class="btn btn-lg btn-info" href="/cars/all">Back To List</a>

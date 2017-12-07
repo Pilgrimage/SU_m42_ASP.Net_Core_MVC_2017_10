@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookShiop.Data\BookShop.Data.csproj" />
+    <ProjectReference Include="..\BookShiop.Models\BookShop.Models.csproj" />
+    <ProjectReference Include="..\BookShop.Common\BookShop.Common.csproj" />
+  </ItemGroup>
+
+</Project>

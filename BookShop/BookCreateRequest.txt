@@ -1,0 +1,12 @@
+{
+"Title": "Discoveries in the night",
+"Description": "A true Love story...",
+"Price": 30,
+"Copies": 5,
+"Edition": 2,
+"ReleaseDate": "2014-01-01T00:00:00.0002", 
+"AgeRestriction":18,
+"AuthorFirstName": "Krasimir",
+"AuthorLastName": "Pendachanski",
+"Categories": "History Drama Erotica"
+}
